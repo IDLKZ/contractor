@@ -18,11 +18,15 @@
                     <a class="nav-link color-blue-1 navbar-links" href="#">Вакансии</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link color-blue-1 navbar-links" href="#">Подать заявку</a>
+                            <a class="nav-link color-blue-1 navbar-links" href="{{route("create-request")}}">Подать заявку</a>
                 </li>
+                @if(auth()->check())
+                    @if(auth()->user()->role_id == 2)
                 <li class="nav-item">
                     <a class="nav-link color-blue-1 navbar-links" href="#">Мои заявки</a>
                 </li>
+                        @endif
+                @endif
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
