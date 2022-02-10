@@ -6,16 +6,14 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property integer $id
- * @property integer $user_id
- * @property string $live_place
  * @property string $name
- * @property string $IIN
+ * @property string $birthplace
+ * @property string $iin
  * @property string $education
- * @property string $car_license
+ * @property string $car_licence
  * @property string $experience
  * @property string $army_service
- * @property string $army_year
- * @property string $army_section
+ * @property string $army_section_id
  * @property string $position
  * @property string $rank
  * @property string $vtsh
@@ -27,20 +25,19 @@ use Illuminate\Database\Eloquent\Model;
  * @property string $phone
  * @property string $email
  * @property string $photo
- * @property string $card_id
+ * @property string $id_document
  * @property string $autobiography
  * @property string $diploma
  * @property string $declaration
- * @property string $workbook
- * @property string $millitary_id
+ * @property string $work_book
+ * @property string $military_id
  * @property mixed $anketa
- * @property string $date
  * @property string $created_at
  * @property string $updated_at
- * @property User $user
  * @property Attempt[] $attempts
+ * @property Offer[] $offers
  */
-class Request extends Model
+class Application extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
@@ -52,15 +49,7 @@ class Request extends Model
     /**
      * @var array
      */
-    protected $fillable = ['user_id', 'live_place', 'name', 'IIN', 'education', 'car_license', 'experience', 'army_service', 'army_year', 'army_section', 'position', 'rank', 'vtsh', 'branch_name', 'year_service', 'wanted_position', 'contract_term', 'region', 'phone', 'email', 'photo', 'card_id', 'autobiography', 'diploma', 'declaration', 'workbook', 'millitary_id', 'anketa', 'date', 'created_at', 'updated_at'];
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
-     */
-    public function user()
-    {
-        return $this->belongsTo('App\User');
-    }
+    protected $fillable = ['name', 'birthplace', 'iin', 'education', 'car_licence', 'experience', 'army_service', 'army_section_id', 'position', 'rank', 'vtsh', 'branch_name', 'year_service', 'wanted_position', 'contract_term', 'region', 'phone', 'email', 'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id', 'anketa', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -68,5 +57,13 @@ class Request extends Model
     public function attempts()
     {
         return $this->hasMany('App\Attempt');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function offers()
+    {
+        return $this->hasMany('App\Offer');
     }
 }

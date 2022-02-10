@@ -7,23 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 /**
  * @property integer $id
  * @property integer $application_id
- * @property integer $step_id
+ * @property integer $attempt_id
+ * @property string $position
+ * @property string $army_section_id
+ * @property string $arrived_at
  * @property string $comment
  * @property int $status
- * @property string $published_date
- * @property string $validated_date
  * @property string $created_at
  * @property string $updated_at
  * @property Application $application
- * @property Step $step
+ * @property Attempt $attempt
  * @property Contract[] $contracts
- * @property Offer[] $offers
  */
-class Attempt extends Model
+class Offer extends Model
 {
     /**
      * The "type" of the auto-incrementing ID.
-     *
+     * 
      * @var string
      */
     protected $keyType = 'integer';
@@ -31,7 +31,7 @@ class Attempt extends Model
     /**
      * @var array
      */
-    protected $fillable = ['application_id', 'step_id', 'comment', 'status', 'published_date', 'validated_date', 'created_at', 'updated_at'];
+    protected $fillable = ['application_id', 'attempt_id', 'position', 'army_section_id', 'arrived_at', 'comment', 'status', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
@@ -44,9 +44,9 @@ class Attempt extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      */
-    public function step()
+    public function attempt()
     {
-        return $this->belongsTo('App\Steps');
+        return $this->belongsTo('App\Attempt');
     }
 
     /**
@@ -55,13 +55,5 @@ class Attempt extends Model
     public function contracts()
     {
         return $this->hasMany('App\Contract');
-    }
-
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function offers()
-    {
-        return $this->hasMany('App\Offer');
     }
 }

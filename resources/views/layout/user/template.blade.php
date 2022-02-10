@@ -13,6 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link href="https://unpkg.com/smartwizard@5/dist/css/smart_wizard_all.min.css" rel="stylesheet" type="text/css" />
     <link href="https://unpkg.com/smartwizard@5/dist/css/smart_wizard_theme_arrows.min.css" rel="stylesheet" type="text/css" />
+    @toastr_css
     <link rel="stylesheet" href="assets/styles/style.css">
     @stack("styles")
 
@@ -43,6 +44,10 @@
 <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script src="https://unpkg.com/smartwizard@5/dist/js/jquery.smartWizard.min.js" type="text/javascript"></script>
+@jquery
+@toastr_js
+@toastr_render
+
 @stack("scripts")
 </body>
 </html>

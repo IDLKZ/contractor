@@ -26,7 +26,16 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link color-blue-1 navbar-links" href="{{route("login")}}">Войти</a>
+                    @if(auth()->check())
+                        @if(auth()->user()->role_id == 1)
+
+                        @else
+                            <a class="nav-link color-blue-1 navbar-links" href="{{route("cabinet")}}">{{auth()->user()->name}}</a>
+                        @endif
+                    @else
+                        <a class="nav-link color-blue-1 navbar-links" href="{{route("login")}}">Войти</a>
+
+                    @endif
                 </li>
             </ul>
         </div>

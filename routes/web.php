@@ -18,6 +18,8 @@ Route::get('/', function () {
 });
 Route::get("/login",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
 Route::get("/register",[\App\Http\Controllers\AuthController::class,"register"])->name("register");
+Route::post("/signUp",[\App\Http\Controllers\AuthController::class,"signUp"])->name("signUp");
+Route::post("/signIn",[\App\Http\Controllers\AuthController::class,"signIn"])->name("signIn");
 Route::get("/create-request",[\App\Http\Controllers\RequestController::class,"create"])->name("create-request");
 Route::get("/cabinet",[\App\Http\Controllers\UserCabinetController::class,"cabinet"])->name("cabinet");
 Route::get("/my-request",[\App\Http\Controllers\RequestController::class,"myRequest"])->name("myRequest");

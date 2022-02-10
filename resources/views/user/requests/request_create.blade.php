@@ -21,27 +21,27 @@
 
             <div class="col-md-6">
                 <div class="text-center py-2">
-                    <h4 class="font-weight-bold">Анкета кандидата</h4>
+                    <h4 class="font-weight-bold">Анкета кандидата *</h4>
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="name" class="font-weight-bold">Ф.И.О</label>
+                    <label for="name" class="font-weight-bold">Ф.И.О *</label>
                     <input type="text" name="name" class="form-control border-black-1" id="name" aria-describedby="name">
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="birthplace" class="font-weight-bold">Место жительства (Область, Город, Улица, Дом, Квартира)</label>
+                    <label for="birthplace" class="font-weight-bold">Место жительства (Область, Город, Улица, Дом, Квартира) *</label>
                     <input type="text" name="birthplace" class="form-control border-black-1" id="birthplace" aria-describedby="birthplace">
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="iin" class="font-weight-bold">ИИН</label>
+                    <label for="iin" class="font-weight-bold">ИИН *</label>
                     <input type="text" name="iin" class="form-control border-black-1" id="iin" aria-describedby="iin">
                 </div>
 
 
                 <div class="form-group my-4">
-                    <label for="education" class="font-weight-bold">Образование</label>
+                    <label for="education" class="font-weight-bold">Образование *</label>
                     <select class="form-control border-black-1" name="education" id="education">
                         <option value="Общее среднее образование"> Общее среднее образование </option>
                         <option value="Техническое и профессиональное образование: квалификации рабочего и специалиста среднего звена"> Техническое и профессиональное образование: квалификации рабочего и специалиста среднего звена </option>
@@ -53,7 +53,7 @@
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="car_license" class="font-weight-bold">Водительские права</label>
+                    <label for="car_license" class="font-weight-bold">Водительские права *</label>
                     <select class="form-control car_license" name="car_license[]" id="car_license" multiple  style="border: 1px solid black; border-radius: 10px">
                         <option value="Нет прав">Нет прав</option>
                         <option value="Категория A">Категория A</option>
@@ -65,7 +65,7 @@
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="experience" class="font-weight-bold">Опыт работы</label>
+                    <label for="experience" class="font-weight-bold">Опыт работы *</label>
                     <select class="form-control border-black-1" name="experience" id="experience">
                         <option value="Нет опыта работы"> Нет опыта работы</option>
                         <option value="1 год"> 1 год </option>
@@ -76,11 +76,11 @@
                 </div>
 
                 <div class="mt-2">
-                    <label class="font-weight-bold">Отношение к воинской службе:</label>
+                    <label class="font-weight-bold">Отношение к воинской службе *: </label>
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="army_service" class="font-weight-bold">1)прохождение воинской службы</label>
+                    <label for="army_service" class="font-weight-bold">1)прохождение воинской службы *</label>
                     <select class="form-control border-black-1" name="army_service" id="army_service">
                         <option value="Да">Да</option>
                         <option value="Нет">Нет</option>
@@ -103,7 +103,7 @@
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="vtsh" class="font-weight-bold">2)	прошедшие подготовку в филиалах ВТШ МО РК по программе военнообученного резерва:</label>
+                    <label for="vtsh" class="font-weight-bold">2)	прошедшие подготовку в филиалах ВТШ МО РК по программе военнообученного резерва *:</label>
                     <select class="form-control border-black-1" name="vtsh" id="vtsh">
                         <option value="Да">Да</option>
                         <option value="Нет">Нет</option>
@@ -121,16 +121,16 @@
                 </div>
 
                 <div class="mt-2">
-                    <label class="font-weight-bold">Указать должность, на какую планирует поступить:</label>
+                    <label class="font-weight-bold">Указать должность, на какую планирует поступить *:</label>
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="wanted_position" class="font-weight-bold">Наименование должности </label>
+                    <label for="wanted_position" class="font-weight-bold">Наименование должности * </label>
                     <input type="text" name="wanted_position" class="form-control border-black-1" id="wanted_position" aria-describedby="wanted_position">
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="contract_term" class="font-weight-bold">Срок заключения контракта</label>
+                    <label for="contract_term" class="font-weight-bold">Срок заключения контракта *</label>
                     <select class="form-control border-black-1" name="contract_term" id="contract_term">
                         <option value="3 года">3 года</option>
                         <option value="5 лет">5 лет</option>
@@ -139,17 +139,17 @@
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="region" class="font-weight-bold">Регион </label>
+                    <label for="region" class="font-weight-bold">Регион *</label>
                     <input type="text" name="region" class="form-control border-black-1" id="region" aria-describedby="region">
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="phone" class="font-weight-bold">Телефон </label>
+                    <label for="phone" class="font-weight-bold">Телефон * </label>
                     <input type="text" name="phone" class="form-control border-black-1" id="phone" aria-describedby="phone">
                 </div>
 
                 <div class="form-group my-4">
-                    <label for="email" class="font-weight-bold">Электронная почта </label>
+                    <label for="email" class="font-weight-bold">Электронная почта * </label>
                     <input type="email" name="email" class="form-control border-black-1" id="email" aria-describedby="email">
                 </div>
 

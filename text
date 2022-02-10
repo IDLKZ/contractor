@@ -1,0 +1,7 @@
+php artisan krlove:generate:model Role --table-name=roles
+php artisan krlove:generate:model Steps --table-name=steps
+php artisan krlove:generate:model Application --table-name=applications
+php artisan krlove:generate:model Attempt --table-name=attempts
+php artisan krlove:generate:model Offer --table-name=offers
+php artisan krlove:generate:model Contract --table-name=contracts
+

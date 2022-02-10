@@ -16,6 +16,8 @@ class CreateStepsTable extends Migration
         Schema::create('steps', function (Blueprint $table) {
             $table->bigIncrements("id");
             $table->string("title");
+            $table->foreignId("next_step")->nullable()->references("id")->on("steps")->cascadeOnUpdate()->onDelete("set null");
+            $table->foreignId("previous_step")->nullable()->references("id")->on("steps")->cascadeOnUpdate()->onDelete("set null");
             $table->timestamps();
         });
     }
