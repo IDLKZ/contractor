@@ -55,8 +55,13 @@ text-rendering: auto!important;
 .main-img{
     width: 90%;
 }
+.add_button{
+    height: 40px; width: 40px; border-radius: 50%; border: 1px solid gray;
+}
 
-
+.bg-light-blue{
+    background: rgba(0, 102, 195, 0.3);
+}
 
 
 @media screen and (max-width: 400px) {

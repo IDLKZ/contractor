@@ -18,7 +18,7 @@
                     </div>
                 @endif
 
-                <form method="post" action="{{route("signIn")}}">
+                <form method="post" action="{{route("signIn")}}" >
                     @csrf
                     <div class="form-group my-4">
                         <label for="exampleInputEmail1" class="text-white">Email</label>
