@@ -1,0 +1,39 @@
+body{
+    font-family: 'Comfortaa';
+}
+.color-blue-1{
+    color: #0066C3!important;
+}
+h1, h2, h3,p {
+text-rendering: auto!important;
+}
+.navbar-links{
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.navbar-logo{
+    font-size: 30px;
+    font-weight: 700;
+}
+.navbar-sub{
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.blue-bg{
+    background: #0066C3!important;
+}
+
+.main-title{
+    font-size: 32px;
+    font-weight: 700;
+}
+.main-subtitle{
+    font-size: 18px;
+}
+.main-button{
+    background: #2BBFFF;
+    color: white!important;
+    font-size: 18px;
+}

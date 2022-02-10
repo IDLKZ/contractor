@@ -10,6 +10,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css">
     <title>Hello, world!</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
 @include("layout.user.navbar")
 
 
-<section>
+<section class="blue-bg">
     @yield("content")
 
 </section>
