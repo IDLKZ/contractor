@@ -1,7 +1,7 @@
-<div class="container-flex-lg">
+<div class="container-fluid container-lg">
     <nav class="navbar navbar-expand-md navbar-light">
-        <span class="mr-5">
-                    <a class="navbar-brand color-blue-1 navbar-logo" href="#">Kontraktnik.kz</a><br>
+        <span class="mr-md-5">
+                    <a class="navbar-brand color-blue-1 navbar-logo" href="/">Kontraktnik.kz</a><br>
                     <small class="navbar-sub color-blue-1">Сервис по приему на воинскую службу по контракту</small>
 
         </span>
@@ -20,10 +20,13 @@
                 <li class="nav-item">
                     <a class="nav-link color-blue-1 navbar-links" href="#">Подать заявку</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link color-blue-1 navbar-links" href="#">Мои заявки</a>
+                </li>
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link color-blue-1 navbar-links" href="#">Войти</a>
+                    <a class="nav-link color-blue-1 navbar-links" href="{{route("login")}}">Войти</a>
                 </li>
             </ul>
         </div>

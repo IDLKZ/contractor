@@ -1,5 +1,6 @@
 body{
     font-family: 'Comfortaa';
+    overflow-x: hidden;
 }
 .color-blue-1{
     color: #0066C3!important;
@@ -21,14 +22,28 @@ text-rendering: auto!important;
     font-weight: 700;
 }
 
+.min-height-100{
+    min-height: 100vh!important;
+}
+
 .blue-bg{
     background: #0066C3!important;
+}
+.border-black-1{
+    border: 1px solid black!important;
+    border-radius: 10px;
 }
 
 .main-title{
     font-size: 32px;
     font-weight: 700;
 }
+
+.main-title-1{
+    font-size: 28px;
+    font-weight: 700;
+}
+
 .main-subtitle{
     font-size: 18px;
 }
@@ -36,4 +51,39 @@ text-rendering: auto!important;
     background: #2BBFFF;
     color: white!important;
     font-size: 18px;
+}
+.main-img{
+    width: 90%;
+}
+
+
+
+
+@media screen and (max-width: 400px) {
+    .main-title{
+        font-size: 22px;
+        font-weight: 700;
+    }
+    .main-title-1{
+        font-size: 18px;
+        font-weight: 700;
+    }
+    .main-subtitle{
+        font-size: 14px;
+    }
+    .main-button{
+        background: #2BBFFF;
+        color: white!important;
+        font-size: 14px;
+    }
+}
+
+@media screen and (min-width: 400px) and (max-width: 600px){
+    .main-title{
+        font-size: 26px;
+        font-weight: 700;
+    }
+    .main-subtitle{
+        font-size: 16px;
+    }
 }
