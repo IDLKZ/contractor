@@ -46,6 +46,12 @@ class AuthController extends Controller
             toastError("Пароль или email некорректны");
             return redirect()->back();
         }
+    }
 
+    public function logout(){
+        if(Auth::check()){
+            Auth::logout();
+        }
+        return redirect()->route("login");
     }
 }

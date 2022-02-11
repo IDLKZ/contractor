@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Models\User;
+use App\Traitor\UploadModel;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -39,17 +41,25 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Application extends Model
 {
+    use UploadModel;
     /**
      * The "type" of the auto-incrementing ID.
-     * 
+     *
      * @var string
      */
     protected $keyType = 'integer';
 
+    protected $uploadFiles = [
+        'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id', 'anketa'
+        ];
+
+    protected $casts=[
+      "car_licence"=>"array"
+    ];
     /**
      * @var array
      */
-    protected $fillable = ['name', 'birthplace', 'iin', 'education', 'car_licence', 'experience', 'army_service', 'army_section_id', 'position', 'rank', 'vtsh', 'branch_name', 'year_service', 'wanted_position', 'contract_term', 'region', 'phone', 'email', 'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id', 'anketa', 'created_at', 'updated_at'];
+    protected $fillable = ["user_id",'name', 'birthplace', 'iin', 'education', 'car_licence', 'experience', 'army_service', 'army_section_id', 'position', 'rank', 'vtsh', 'branch_name', 'year_service', 'wanted_position', 'contract_term', 'region', 'phone', 'email', 'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id', 'anketa', 'created_at', 'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -57,6 +67,10 @@ class Application extends Model
     public function attempts()
     {
         return $this->hasMany('App\Attempt');
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class,"user_id","id");
     }
 
     /**

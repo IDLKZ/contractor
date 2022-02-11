@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Traitor\UploadModel;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -27,7 +29,11 @@ class Attempt extends Model
      * @var string
      */
     protected $keyType = 'integer';
+    use UploadModel;
 
+    protected $casts = [
+
+    ];
     /**
      * @var array
      */
@@ -63,5 +69,28 @@ class Attempt extends Model
     public function offers()
     {
         return $this->hasMany('App\Offer');
+    }
+
+    public static function newAttempt($application){
+        if(Attempt::where("application_id",$application->id)->where("step_id",1)->count() <= 2){
+            $input["application_id"] = $application->id;
+            $input["step_id"] = 1;
+            $input["status"] = 0;
+            $input["published_date"] = Carbon::now()->toDateTimeString();
+            Attempt::add($input);
+        }
+    }
+
+    public  function getStatus(){
+        if($this->status == 0){
+            return "Ожидание";
+        }
+        else if($this->status == 1){
+            return "Одобрено";
+        }
+        else if($this->status == -1){
+            return "Отказано";
+        }
+
     }
 }

@@ -19,8 +19,8 @@ class CreateAttemptsTable extends Migration
             $table->foreignId("step_id")->references("id")->on("steps")->cascadeOnUpdate()->cascadeOnDelete();
             $table->text("comment")->nullable();
             $table->integer("status")->default(0);
-            $table->timestamp("published_date");
-            $table->timestamp("validated_date");
+            $table->timestamp("published_date")->nullable();
+            $table->timestamp("validated_date")->nullable();
 
 
             $table->timestamps();

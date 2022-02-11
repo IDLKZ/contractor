@@ -30,7 +30,7 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index3.html" class="brand-link text-center">
+        <a href="/" class="brand-link text-center">
             <span class="brand-text font-weight-light">Kontractnik.kz</span>
         </a>
 

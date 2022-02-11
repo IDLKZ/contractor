@@ -16,6 +16,25 @@ trait UploadModel
        return $model->save();
     }
 
+    static function uploadWithFiles($request,$input){
+        try{
+            $model = new static();
+            $model->fill($input);
+            $model->save();
+            $uploadFiles = $model->uploadFiles;
+            foreach ($uploadFiles as $file){
+                if($request->hasFile($file)){
+                    $model->uploadFile($request[$file],$file);
+                }
+            }
+            return $model;
+        }
+        catch (\Exception $e){
+            return  false;
+        }
+
+    }
+
     public function edit($fields, $path = null)
     {
         if($path !== null){

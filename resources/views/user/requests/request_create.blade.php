@@ -27,7 +27,7 @@
         @endif
 
 
-        <form action="{{route("save-request")}}" enctype="multipart/form-data" method="post">
+        <form id="saveRequestForm" action="{{route("save-request")}}" enctype="multipart/form-data" method="post">
             @csrf
           <div class="row bg-white py-4 px-2">
 
@@ -38,7 +38,7 @@
 
                 <div class="form-group my-4">
                     <label for="name" class="font-weight-bold">Ф.И.О *</label>
-                    <input type="text" name="name" class="form-control border-black-1" id="name" aria-describedby="name">
+                    <input type="text" name="name" class="form-control border-black-1" id="name" aria-describedby="name" value="{{old("name")}}">
                     @if($errors->has('name'))
                         <small class="text-danger">{{ $errors->first('name') }}</small>
                     @endif
@@ -46,7 +46,7 @@
 
                 <div class="form-group my-4">
                     <label for="birthplace" class="font-weight-bold">Место жительства (Область, Город, Улица, Дом, Квартира) *</label>
-                    <input type="text" name="birthplace" class="form-control border-black-1" id="birthplace" aria-describedby="birthplace">
+                    <input type="text" name="birthplace" class="form-control border-black-1" id="birthplace" aria-describedby="birthplace" value="{{old("birthplace")}}">
                     @if($errors->has('birthplace'))
                         <small class="text-danger">{{ $errors->first('birthplace') }}</small>
                     @endif
@@ -54,7 +54,7 @@
 
                 <div class="form-group my-4">
                     <label for="iin" class="font-weight-bold">ИИН *</label>
-                    <input type="text" name="iin" class="form-control border-black-1" id="iin" aria-describedby="iin">
+                    <input type="text" name="iin" class="form-control border-black-1" id="iin" aria-describedby="iin"  value="{{old("iin")}}">
                     @if($errors->has('iin'))
                         <small class="text-danger">{{ $errors->first('iin') }}</small>
                     @endif
@@ -78,7 +78,7 @@
 
                 <div class="form-group my-4">
                     <label for="car_license" class="font-weight-bold">Водительские права *</label>
-                    <select class="form-control car_license" name="car_license[]" id="car_license" multiple  style="border: 1px solid black; border-radius: 10px">
+                    <select class="form-control car_license" name="car_licence[]" id="car_license" multiple  style="border: 1px solid black; border-radius: 10px">
                         <option value="Нет прав">Нет прав</option>
                         <option value="Категория A">Категория A</option>
                         <option value="Категория B">Категория B</option>
@@ -122,7 +122,7 @@
 
                 <div class="form-group my-4">
                     <label for="army_section_id" class="font-weight-bold">Номер воинской части </label>
-                    <input type="text" name="army_section_id" class="form-control border-black-1" id="army_section_id" aria-describedby="army_section_id">
+                    <input type="text" name="army_section_id" class="form-control border-black-1" id="army_section_id" aria-describedby="army_section_id"  value="{{old("army_section_id")}}">
                     @if($errors->has('army_section_id'))
                         <small class="text-danger">{{ $errors->first('army_section_id') }}</small>
                     @endif
@@ -131,7 +131,7 @@
 
                 <div class="form-group my-4">
                     <label for="position" class="font-weight-bold">Должность </label>
-                    <input type="text" name="position" class="form-control border-black-1" id="position" aria-describedby="position">
+                    <input type="text" name="position" class="form-control border-black-1" id="position" aria-describedby="position"  value="{{old("position")}}">
                     @if($errors->has('position'))
                         <small class="text-danger">{{ $errors->first('position') }}</small>
                     @endif
@@ -140,7 +140,7 @@
 
                 <div class="form-group my-4">
                     <label for="rank" class="font-weight-bold">Воинское звание </label>
-                    <input type="text" name="rank" class="form-control border-black-1" id="rank" aria-describedby="rank">
+                    <input type="text" name="rank" class="form-control border-black-1" id="rank" aria-describedby="rank" value="{{old("rank")}}">
                     @if($errors->has('rank'))
                         <small class="text-danger">{{ $errors->first('rank') }}</small>
                     @endif
@@ -160,7 +160,7 @@
 
                 <div class="form-group my-4">
                     <label for="branch_name" class="font-weight-bold">Наименование филиала</label>
-                    <input type="text" name="branch_name" class="form-control border-black-1" id="branch_name" aria-describedby="branch_name">
+                    <input type="text" name="branch_name" class="form-control border-black-1" id="branch_name" aria-describedby="branch_name" value="{{old("branch_name")}}">
                     @if($errors->has('branch_name'))
                         <small class="text-danger">{{ $errors->first('branch_name') }}</small>
                     @endif
@@ -168,7 +168,7 @@
 
                 <div class="form-group my-4">
                     <label for="year_service" class="font-weight-bold">Год обучения</label>
-                    <input type="text" name="year_service" class="form-control border-black-1" id="year_service" aria-describedby="year_service">
+                    <input type="text" name="year_service" class="form-control border-black-1" id="year_service" aria-describedby="year_service" value="{{old("year_service")}}">
                     @if($errors->has('year_service'))
                         <small class="text-danger">{{ $errors->first('year_service') }}</small>
                     @endif
@@ -180,7 +180,7 @@
 
                 <div class="form-group my-4">
                     <label for="wanted_position" class="font-weight-bold">Наименование должности * </label>
-                    <input type="text" name="wanted_position" class="form-control border-black-1" id="wanted_position" aria-describedby="wanted_position">
+                    <input type="text" name="wanted_position" class="form-control border-black-1" id="wanted_position" aria-describedby="wanted_position" value="{{old("wanted_position")}}">
                     @if($errors->has('wanted_position'))
                         <small class="text-danger">{{ $errors->first('wanted_position') }}</small>
                     @endif
@@ -200,7 +200,7 @@
 
                 <div class="form-group my-4">
                     <label for="region" class="font-weight-bold">Регион *</label>
-                    <input type="text" name="region" class="form-control border-black-1" id="region" aria-describedby="region">
+                    <input type="text" name="region" class="form-control border-black-1" id="region" aria-describedby="region" value="{{old("region")}}">
                     @if($errors->has('region'))
                         <small class="text-danger">{{ $errors->first('region') }}</small>
                     @endif
@@ -208,7 +208,7 @@
 
                 <div class="form-group my-4">
                     <label for="phone" class="font-weight-bold">Телефон * </label>
-                    <input type="text" name="phone" class="form-control border-black-1" id="phone" aria-describedby="phone">
+                    <input type="text" name="phone" class="form-control border-black-1" id="phone" aria-describedby="phone" value="{{old("phone")}}">
                     @if($errors->has('phone'))
                         <small class="text-danger">{{ $errors->first('phone') }}</small>
                     @endif
@@ -217,7 +217,7 @@
 
                 <div class="form-group my-4">
                     <label for="email" class="font-weight-bold">Электронная почта * </label>
-                    <input type="email" name="email" class="form-control border-black-1" id="email" aria-describedby="email">
+                    <input type="email" name="email" class="form-control border-black-1" id="email" aria-describedby="email" value="{{old("email")}}">
                     @if($errors->has('email'))
                         <small class="text-danger">{{ $errors->first('email') }}</small>
                     @endif
@@ -267,7 +267,7 @@
                   <div class="form-group my-4">
                       <label for="declaration" class="font-weight-bold">Декларация о доходах и имуществе *</label>
                       <br>
-                      <input type="file" name="declaration" id="declaration"/>
+                      <input type="file" name="declaration" id="declaration" value="{{old("declaration")}}"/>
                       @if($errors->has('declaration'))
                           <small class="text-danger">{{ $errors->first('declaration') }}</small>
                       @endif
@@ -276,7 +276,7 @@
                   <div class="form-group my-4">
                       <label for="work_book" class="font-weight-bold">Трудовая книжка *</label>
                       <br>
-                      <input type="file" name="work_book" id="work_book"/>
+                      <input type="file" name="work_book" id="work_book" value="{{old("work_book")}}"/>
                       @if($errors->has('work_book'))
                           <small class="text-danger">{{ $errors->first('work_book') }}</small>
                       @endif
@@ -285,7 +285,8 @@
                   <div class="form-group my-4">
                       <label for="military_id" class="font-weight-bold">Военный билет *</label>
                       <br>
-                      <input type="file" name="military_id" id="military_id" />
+                      <input type="file" name="military_id" id="military_id" value="{{old("military_id
+")}}"/>
                       @if($errors->has('military_id'))
                           <small class="text-danger">{{ $errors->first('military_id') }}</small>
                       @endif
@@ -327,10 +328,11 @@
 
                    </div>
                </div>
+              <input type="number" id="type" name="type" hidden value="0">
 
               <div class="row justify-content-between w-100 px-2 mx-0 my-4">
-                  <button class="btn main-button" type="submit">Сохранить</button>
-                  <button class="btn main-button" type="submit">Отправить</button>
+                  <button class="btn main-button" type="submit" id="save_button">Сохранить</button>
+                  <button class="btn main-button" type="submit" id="send_button">Отправить</button>
               </div>
           </div>
         </form>
@@ -362,6 +364,21 @@
 
         $(document).ready(function() {
             $('.car_license').select2();
+
+            $("#save_button").click(function (e) {
+                e.preventDefault();
+                $("#type").attr("value",0);
+                $("#saveRequestForm").submit();
+
+            });
+
+            $("#send_button").click(function (e) {
+                e.preventDefault();
+                $("#type").attr("value",1);
+                $("#saveRequestForm").submit();
+            });
+
+
         });
         $("#add_member").click(function (e) {
             e.preventDefault();

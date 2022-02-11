@@ -23,7 +23,7 @@
                 @if(auth()->check())
                     @if(auth()->user()->role_id == 2)
                 <li class="nav-item">
-                    <a class="nav-link color-blue-1 navbar-links" href="#">Мои заявки</a>
+                    <a class="nav-link color-blue-1 navbar-links" href="{{route("myRequest")}}">Мои заявки</a>
                 </li>
                         @endif
                 @endif
