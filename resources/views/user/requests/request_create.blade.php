@@ -315,8 +315,7 @@
                     <div class="form-group my-4">
                         <label for="military_id" class="font-weight-bold">Военный билет *</label>
                         <br>
-                        <input type="file" name="military_id" id="military_id" value="{{old("military_id
-")}}"/>
+                        <input type="file" name="military_id" id="military_id" value="{{old("military_id")}}"/>
                         @if($errors->has('military_id'))
                             <small class="text-danger">{{ $errors->first('military_id') }}</small>
                         @endif
@@ -328,18 +327,19 @@
                     <div class="text-center py-2">
                         <h4 class="font-weight-bold">Анкета на близких родственников</h4>
                     </div>
-                    <input id="anketa" hidden name="anketa" value="">
+                    <input type="text" id="anketa" hidden name="anketa[]" multiple value="{{old("anketa")}}">
                     <div>
-                        <table class="table" id="relative_table">
+                        <table class="table">
                             <thead>
                             <tr>
                                 <th scope="col">ФИО</th>
                                 <th scope="col">Статус</th>
                                 <th scope="col">Год рождения</th>
                                 <th scope="col">ИИН</th>
+                                <th scope="col">Действия</th>
                             </tr>
                             </thead>
-                            <tbody>
+                            <tbody id="relative_table">
 
 
                             </tbody>
@@ -354,7 +354,6 @@
                     </div>
                 </div>
                 <input type="number" id="type" name="type" hidden value="0">
-                <input type="text" id="anketa" name="anketa" hidden value="0">
 
                 <div class="row justify-content-between w-100 px-2 mx-0 my-4">
                     <button class="btn main-button" type="submit" id="save_button">Сохранить</button>
@@ -424,6 +423,7 @@
     <script>
 
         $(document).ready(function () {
+            drawTable();
             $('.car_license').select2();
 
             $("#save_button").click(function (e) {
@@ -444,9 +444,12 @@
 
             $("#add_relative").click(
                 function () {
-                    let relatives = JSON.stringify($("#anketa").val());
-                    console.log(relatives);
-                    relatives = [];
+                    if($("#anketa").val().length > 0){
+                        let relatives = JSON.parse($("#anketa").val());
+                    }
+                    else{
+                        relatives = [];
+                    }
                     let relative_name = $("#relative_name").val();
                     let relative_birthdate = $("#relative_birthdate").val();
                     let relative_iin = $("#relative_iin").val();
@@ -454,18 +457,41 @@
 
                     if(relative_name.length >0 && relative_iin.length == 12 && relative_birthdate.length>0 && relative_status.length>0){
                         relatives.push({"relative_name":relative_name, "relative_birthdate":relative_birthdate, "relative_iin":relative_iin, "relative_status":relative_status})
-                        $("#relative_table").append("<tr><td>"+ relative_name +"</td><td>"+relative_name+"</td><td>"+relative_birthdate+"</td><td>"+relative_iin+"</td></tr>");
-
-                        $("#anketa").attr("value",JSON.parse(relatives));
+                        $("#relative_table").append('<tr><td>'+ relative_name +'</td><td>'+relative_name+'</td><td>'+relative_birthdate+'</td><td>'+relative_iin+'</td><td><p class="btn btn-danger" onclick="deleteRelative('+ relative_iin+')">Удалить</p></td></tr>');
+                        $("#anketa").attr("value",JSON.stringify(relatives));
                     }
                     else {
                         alert("Заполните поля корректно")
                     }
 
                 }
-            )
-
+            );
         });
+        function deleteRelative(relative_iin){
+            let relatives = [];
+            if($("#anketa").val().length > 0){
+                 relatives = JSON.parse($("#anketa").val());
+            }
+            for(let i =0; i < relatives.length; i++){
+                if(relatives[i].relative_iin == relative_iin){
+                    relatives.splice(i,1);
+                }
+            }
+            relatives = relatives.length > 0 ? JSON.stringify(relatives) : "";
+            $("#anketa").attr("value",relatives);
+            drawTable();
+        }
+
+        function drawTable(){
+            $("#relative_table").empty();
+            let relatives = [];
+            if($("#anketa").val().length > 0){
+                relatives = JSON.parse($("#anketa").val());
+            }
+            for(let i =0; i < relatives.length; i++){
+                $("#relative_table").append('<tr><td>'+ relatives[i].relative_name +'</td><td>'+relatives[i].relative_name+'</td><td>'+relatives[i].relative_birthdate+'</td><td>'+relatives[i].relative_iin+'</td><td><p class="btn btn-danger" onclick="deleteRelative('+ relatives[i].relative_iin+')">Удалить</p></td></tr>');
+            }
+        }
         $("#add_member").click(function (e) {
             e.preventDefault();
             $('#addRelative').modal("show");

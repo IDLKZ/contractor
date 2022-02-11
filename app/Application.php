@@ -54,7 +54,8 @@ class Application extends Model
         ];
 
     protected $casts=[
-      "car_licence"=>"array"
+      "car_licence"=>"array",
+      "anketa"=>"array"
     ];
     /**
      * @var array
