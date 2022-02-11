@@ -10,7 +10,7 @@
                     Мои заявки
                 </p>
             </div>
-             @if($attempts->isNotEmpty())
+             @if($applications->isNotEmpty())
             <div class="col-md-12">
 
 
@@ -26,13 +26,28 @@
                         </tr>
                         </thead>
                         <tbody>
-                        @foreach($attempts as $attempt)
-                            <tr>
-                                <th scope="row">Заявка №{{$attempt->id}}</th>
-                                <td>{{$attempt->published_date}}</td>
-                                <td>{{$attempt->step->title}}:{{$attempt->getStatus()}}</td>
-                                <td>{{$attempt->comment}}</td>
-                            </tr>
+                        @foreach($applications as $application)
+                            @if(count($application->attempts)> 0)
+                                @foreach($application->attempts as $attempt)
+                                    <tr>
+                                        <th scope="row">Заявка № {{$attempt->id}}</th>
+                                        <td>{{$attempt->published_date}}</td>
+                                        <td>{{$attempt->step->title}}:{{$attempt->getStatus()}}</td>
+                                        <td><a class="text-black" href="">Посмотреть</a></td>
+                                    </tr>
+                                @endforeach
+
+                            @else
+                                <tr>
+                                    <th scope="row">Сохраненная Заявка №{{$application->id}}</th>
+                                    <td>{{$application->updated_at}}</td>
+                                    <td>Сохранена, но не отправлена </td>
+                                    <td>
+                                        <a href="">Изменить</a>
+
+                                    </td>
+                                </tr>
+                            @endif
                         @endforeach
 
 

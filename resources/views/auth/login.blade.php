@@ -37,6 +37,9 @@
                     <button type="submit" class="btn btn-primary main-button w-100">Войти</button>
                 </form>
                 <div class="my-4">
+                    <a class="form-check-label text-white" href="{{route("register")}}">Регистрация</a>
+                </div>
+                <div class="my-4">
                     <a class="form-check-label text-white" href="">Забыли пароль?</a>
                 </div>
 

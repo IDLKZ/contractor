@@ -15,9 +15,8 @@ class RequestController extends Controller
     }
 
     public function myRequest(){
-        $applications = Application::where("user_id",Auth::id())->pluck("id")->toArray();
-        $attempts = Attempt::whereIn("application_id",$applications)->paginate(20);
-        return view("user.requests.my_requests",compact("attempts"));
+        $applications = Application::where("user_id",Auth::id())->with("attempts","offers")->paginate(15);
+        return view("user.requests.my_requests",compact("applications"));
 
     }
 
