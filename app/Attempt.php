@@ -37,7 +37,30 @@ class Attempt extends Model
     /**
      * @var array
      */
-    protected $fillable = ['application_id', 'step_id', 'comment', 'status', 'published_date', 'validated_date', 'created_at', 'updated_at'];
+    protected $fillable = [
+        'application_id',
+        'step_id',
+        'comment',
+        'status',
+
+        'accepted_status',
+        'checked_status',
+        'offered_status',
+        'signed_status',
+
+        "accepted_comment",
+        "checked_comment",
+        "offered_comment",
+        "signed_comment",
+
+        'published_date',
+        'validated_date',
+        'accepted_date',
+        'checked_date',
+        'offered_date',
+        'signed_date',
+        'created_at',
+        'updated_at'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
