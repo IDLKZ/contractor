@@ -38,7 +38,6 @@
                         @endif
                     @else
                         <a class="nav-link color-blue-1 navbar-links" href="{{route("login")}}">Войти</a>
-
                     @endif
                 </li>
             </ul>

@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Application;
 use App\Attempt;
+use App\Contract;
 use App\Http\Requests\ChangeApplicationRequest;
 use App\Http\Requests\SaveApplicationRequest;
 use App\Offer;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,11 +53,9 @@ class RequestController extends Controller
     }
 
     public function offer($id){
-        $offer = Offer::find($id);
-        if($offer){
-            $attempt = Attempt::find($offer->attempt_id);
-            return view("user.offers",compact("offer","attempt"));
-
+        $attempt = Attempt::find($id);
+        if($attempt){
+            return view("user.offers",compact("attempt"));
         }
         else{
             return  redirect()->back();
@@ -119,6 +119,50 @@ class RequestController extends Controller
             toastWarning("К сожалению заявка не найдена");
         }
         return  redirect()->route("myRequest");
+    }
+
+
+    public function updateAttempt(Request $request){
+        $request->validate(["status"=>"integer|required","attempt_id"=>"required","offer_id"=>"required"]);
+        $attempt = Attempt::find($request->get("attempt_id"));
+        $offer = Offer::find($request->get("offer_id"));
+        if($attempt){
+            $attempt->offered_status = $request->get("status");
+            $attempt->comment = $request->get("comment");
+            if($attempt->offered_status == 1){
+                $attempt->step_id = 5;
+            }
+            $attempt->save();
+        }
+        if($offer){
+            $offer->status = $request->get("status");
+            $offer->comment = $request->get("comment");
+            $offer->save();
+        }
+        return  redirect()->route("myRequest");
+    }
+
+
+    public function contract($id){
+        $attempt = Attempt::find($id);
+        if($attempt){
+            return  view("user.contract",compact("attempt"));
+        }
+        else{
+            return redirect()->back();
+        }
+    }
+
+
+    public function signContract(Request $request){
+        $attempt = Attempt::find($request->get("id"));
+        if($attempt){
+            $attempt->signed_date = Carbon::now()->toDateTimeString();
+            $attempt->signed_status = 1;
+            $attempt->save();
+            return redirect()->route("show-request",$attempt->id);
+        }
+        return redirect()->route("myRequest");
 
     }
 }

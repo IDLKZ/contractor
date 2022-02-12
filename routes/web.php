@@ -33,6 +33,9 @@ Route::group(["prefix" => "user"],function (){
     Route::get("/show-request/{id}",[\App\Http\Controllers\RequestController::class,"showRequest"])->name("show-request");
     Route::get("/my-request",[\App\Http\Controllers\RequestController::class,"myRequest"])->name("myRequest");
     Route::get("/offers/{id}",[\App\Http\Controllers\RequestController::class,"offer"])->name("offer");
+    Route::post("/update-attempt",[\App\Http\Controllers\RequestController::class,"updateAttempt"])->name("update-attempt");
+    Route::get("/contract/{id}",[\App\Http\Controllers\RequestController::class,"contract"])->name("contract");
+    Route::post("/sign-contract",[\App\Http\Controllers\RequestController::class,"signContract"])->name("signContract");
 
 });
 
