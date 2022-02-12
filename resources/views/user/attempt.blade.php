@@ -1,74 +1,5 @@
 @extends("layout.user.template")
 @push("styles")
-
-<style>
-    .nav-pills.nav-wizard > li {
-        position: relative;
-        overflow: visible;
-        border-right: 15px solid transparent;
-        border-left: 15px solid transparent;
-    }
-    .nav-pills.nav-wizard > li + li {
-        margin-left: 0;
-    }
-    .nav-pills.nav-wizard > li:first-child {
-        border-left: 0;
-    }
-    .nav-pills.nav-wizard > li:first-child a {
-        border-radius: 5px 0 0 5px;
-    }
-    .nav-pills.nav-wizard > li:last-child {
-        border-right: 0;
-    }
-    .nav-pills.nav-wizard > li:last-child a {
-        border-radius: 0 5px 5px 0;
-    }
-    .nav-pills.nav-wizard > li a {
-        border-radius: 0;
-        background-color: #eee;
-    }
-    .nav-pills.nav-wizard > li .nav-arrow {
-        position: absolute;
-        top: 0px;
-        right: -20px;
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-        border-width: 20px 0 20px 20px;
-        border-color: transparent transparent transparent #eee;
-        z-index: 150;
-    }
-    .nav-pills.nav-wizard > li .nav-wedge {
-        position: absolute;
-        top: 0px;
-        left: -20px;
-        width: 0px;
-        height: 0px;
-        border-style: solid;
-        border-width: 20px 0 20px 20px;
-        border-color: #eee #eee #eee transparent;
-        z-index: 150;
-    }
-    .nav-pills.nav-wizard > li:hover .nav-arrow {
-        border-color: transparent transparent transparent #aaa;
-    }
-    .nav-pills.nav-wizard > li:hover .nav-wedge {
-        border-color: #aaa #aaa #aaa transparent;
-    }
-    .nav-pills.nav-wizard > li:hover a {
-        background-color: #aaa;
-        color: #fff;
-    }
-    .nav-pills.nav-wizard > li.active .nav-arrow {
-        border-color: transparent transparent transparent #428bca;
-    }
-    .nav-pills.nav-wizard > li.active .nav-wedge {
-        border-color: #428bca #428bca #428bca transparent;
-    }
-    .nav-pills.nav-wizard > li.active a {
-        background-color: #428bca;
-    }
-</style>
 @endpush
 @section("content")
 
@@ -80,7 +11,7 @@
                 </p>
             </div>
 
-            <div class="text-left">
+            <div class="text-left px-4">
                 <p class="main-title-1 text-white">
                     Заявка № {{$attempt->id}}
                 </p>
@@ -91,7 +22,7 @@
             </div>
         </div>
 
-        <div class="bg-white my-2">
+        <div class="bg-white my-4">
             <ul class='nav nav-wizard'>
 
                 <li class="my-arrow my-arrow-success"><a>Документы отправлены</a></li>
@@ -145,13 +76,54 @@
             </ul>
 
         </div>
+        <div class="my-4 table-responsive">
+
+            <div class="container">
+                <ul class="step d-flex flex-nowrap">
+                    <li class="step-item">
+                        <a  class="text-white">
+                            {{$attempt->published_date}}
+                        </a>
+                    </li>
+                    @if($attempt->accepted_date)
+                        <li class="step-item">
+                            <a  class="text-white">
+                                {{$attempt->accepted_date}}
+                            </a>
+                        </li>
+                    @endif
+                    @if($attempt->checked_date)
+                        <li class="step-item">
+                            <a  class="text-white">
+                                {{$attempt->checked_date}}
+                            </a>
+                        </li>
+                    @endif
+                    @if($attempt->offered_date)
+                        <li class="step-item">
+                            <a  class="text-white">
+                                {{$attempt->offered_date}}
+                            </a>
+                        </li>
+                    @endif
+                    @if($attempt->signed_date)
+                        <li class="step-item">
+                            <a  class="text-white">
+                                {{$attempt->signed_date}}
+                            </a>
+                        </li>
+                    @endif
+
+                </ul>
+            </div>
+        </div>
 
         <div>
 
         </div>
 
 
-        <div class="card bg-white px-2 py-2">
+        <div class="card bg-white px-2 py-2 table-responsive">
 
             <table class="table table-striped">
                 <thead>

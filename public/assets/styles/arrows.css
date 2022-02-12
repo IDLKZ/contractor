@@ -129,3 +129,63 @@ ul.nav-wizard.nav-wizard-backnav .active ~ li a:focus {
     background: #ededed;
 }
 
+.step {
+    list-style: none;
+    margin: .2rem 0;
+    width: 100%;
+}
+
+.step .step-item {
+    -ms-flex: 1 1 0;
+    flex: 1 1 0;
+    margin-top: 0;
+    min-height: 1rem;
+    position: relative;
+    text-align: center;
+}
+
+.step .step-item:not(:first-child)::before {
+    /*background: white;*/
+    content: "";
+    height: 2px;
+    left: -50%;
+    position: absolute;
+    top: 9px;
+    width: 100%;
+    border-top: 5px dotted white;
+}
+
+.step .step-item a {
+    color: #acb3c2;
+    display: inline-block;
+    padding: 20px 10px 0;
+    text-decoration: none;
+}
+
+.step .step-item a::before {
+    background: #1FE233;
+    border: .1rem solid #1FE233;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: .9rem;
+    left: 50%;
+    position: absolute;
+    top: .2rem;
+    transform: translateX(-50%);
+    width: .9rem;
+    z-index: 1;
+}
+
+.step .step-item.active a::before {
+    background: #fff;
+    border: .1rem solid #0069d9;
+}
+
+.step .step-item.active ~ .step-item::before {
+    background: #e7e9ed;
+}
+
+.step .step-item.active ~ .step-item a::before {
+    background: #e7e9ed;
+}

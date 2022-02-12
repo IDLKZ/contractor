@@ -16,9 +16,9 @@
     <link rel="stylesheet" href="/assets/styles/style.css">
     @stack("styles")
 
-    <title>Hello, world!</title>
+    <title>Kontraktnik.kz - Сервис по приему на воинскую службу по контракту</title>
 </head>
-<body>
+<body style="overflow-x: hidden">
 
 @include("layout.user.navbar")
 

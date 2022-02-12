@@ -323,7 +323,7 @@
                 </div>
 
 
-                <div class="col-md-12">
+                <div class="col-md-12 table-responsive">
                     <div class="text-center py-2">
                         <h4 class="font-weight-bold">Анкета на близких родственников</h4>
                     </div>
@@ -459,6 +459,7 @@
                         relatives.push({"relative_name":relative_name, "relative_birthdate":relative_birthdate, "relative_iin":relative_iin, "relative_status":relative_status})
                         $("#relative_table").append('<tr><td>'+ relative_name +'</td><td>'+relative_name+'</td><td>'+relative_birthdate+'</td><td>'+relative_iin+'</td><td><p class="btn btn-danger" onclick="deleteRelative('+ relative_iin+')">Удалить</p></td></tr>');
                         $("#anketa").attr("value",JSON.stringify(relatives));
+                        clearInput();
                     }
                     else {
                         alert("Заполните поля корректно")
@@ -467,6 +468,14 @@
                 }
             );
         });
+
+        function clearInput() {
+            $("#relative_name").val("");
+            $("#relative_birthdate").val("");
+            $("#relative_iin").val("");
+            $("#relative_status").val("");
+        }
+
         function deleteRelative(relative_iin){
             let relatives = [];
             if($("#anketa").val().length > 0){

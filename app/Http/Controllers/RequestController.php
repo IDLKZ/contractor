@@ -7,6 +7,7 @@ use App\Attempt;
 use App\Contract;
 use App\Http\Requests\ChangeApplicationRequest;
 use App\Http\Requests\SaveApplicationRequest;
+use App\Models\Vacancy;
 use App\Offer;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -31,7 +32,7 @@ class RequestController extends Controller
     }
 
     public function myRequest(){
-        $applications = Application::where("user_id",Auth::id())->with("attempts","offers")->paginate(15);
+        $applications = Application::where("user_id",Auth::id())->with("attempts","offers")->orderBy("updated_at","DESC")->paginate(15);
         return view("user.requests.my_requests",compact("applications"));
     }
 
@@ -163,6 +164,16 @@ class RequestController extends Controller
             return redirect()->route("show-request",$attempt->id);
         }
         return redirect()->route("myRequest");
+    }
+
+    public function vacancies(){
+        $vacancies = Vacancy::paginate(20);
+        return view("user.vacancies",compact("vacancies"));
+    }
+
+    public function searchVacancies(Request $request){
+        $vacancies = Vacancy::where("title","like","%".$request->get("title")."%")->orWhere("region","like","%".$request->get("region")."%")->paginate(20);
+        return view("user.vacancies",compact("vacancies"));
 
     }
 }

@@ -17,14 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get("/login",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
-Route::get("/register",[\App\Http\Controllers\AuthController::class,"register"])->name("register");
-Route::post("/signUp",[\App\Http\Controllers\AuthController::class,"signUp"])->name("signUp");
-Route::post("/signIn",[\App\Http\Controllers\AuthController::class,"signIn"])->name("signIn");
+Route::group(["middleware" => "guest"],function (){
+    Route::get("/login",[\App\Http\Controllers\AuthController::class,"login"])->name("login");
+    Route::get("/register",[\App\Http\Controllers\AuthController::class,"register"])->name("register");
+    Route::post("/signUp",[\App\Http\Controllers\AuthController::class,"signUp"])->name("signUp");
+    Route::post("/signIn",[\App\Http\Controllers\AuthController::class,"signIn"])->name("signIn");
+});
 Route::get("/logout",[\App\Http\Controllers\AuthController::class,"logout"])->name("logout");
 
 
-Route::group(["prefix" => "user"],function (){
+Route::group(["prefix" => "user","middleware" => "user"],function (){
     Route::get("/create-request",[\App\Http\Controllers\RequestController::class,"create"])->name("create-request");
     Route::get("/update-request/{id}",[\App\Http\Controllers\RequestController::class,"update"])->name("update-request");
     Route::post("/save-request",[\App\Http\Controllers\RequestController::class,"save"])->name("save-request");
@@ -36,7 +38,8 @@ Route::group(["prefix" => "user"],function (){
     Route::post("/update-attempt",[\App\Http\Controllers\RequestController::class,"updateAttempt"])->name("update-attempt");
     Route::get("/contract/{id}",[\App\Http\Controllers\RequestController::class,"contract"])->name("contract");
     Route::post("/sign-contract",[\App\Http\Controllers\RequestController::class,"signContract"])->name("signContract");
-
+    Route::get("/vacancies",[\App\Http\Controllers\RequestController::class,"vacancies"])->name("vacancies");
+    Route::get("/search-vacancies",[\App\Http\Controllers\RequestController::class,"searchVacancies"])->name("search-vacancies");
 });
 
 

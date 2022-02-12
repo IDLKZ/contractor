@@ -110,6 +110,10 @@ text-rendering: auto!important;
     .my-arrow{
         width: 100%;
     }
+    .navbar-logo{
+        font-size: 18px;
+        font-weight: 700;
+    }
 }
 
 @media screen and (min-width: 400px) and (max-width: 600px){
@@ -117,11 +121,19 @@ text-rendering: auto!important;
         font-size: 26px;
         font-weight: 700;
     }
+    .main-title-1{
+        font-size: 20px;
+        font-weight: 700;
+    }
     .main-subtitle{
         font-size: 16px;
     }
     .my-arrow{
         width: 100%;
+    }
+    .navbar-logo{
+        font-size: 22px;
+        font-weight: 700;
     }
 }
 @media screen and (min-width: 600px) and (max-width: 800px){
@@ -134,6 +146,10 @@ text-rendering: auto!important;
     }
     .my-arrow{
         width: 100%;
+    }
+    .navbar-logo{
+        font-size: 24px;
+        font-weight: 700;
     }
 }
 

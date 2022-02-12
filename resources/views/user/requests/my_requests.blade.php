@@ -14,9 +14,9 @@
             <div class="col-md-12">
 
 
-                <div class="card bg-white px-2 py-2">
+                <div class="card bg-white px-2 py-2 table-responsive">
 
-                    <table class="table table-striped">
+                    <table class="table table-striped ">
                         <thead>
                         <tr>
                             <th scope="col">Наименование</th>
@@ -32,7 +32,7 @@
                                     <tr>
                                         <th scope="row">Заявка № {{$attempt->id}}</th>
                                         <td>{{$attempt->published_date}}</td>
-                                        <td>{{$attempt->step->title}}:{{$attempt->getStatus()}}</td>
+                                        <td>{{$attempt->step->title}}</td>
                                         <td><a class="text-black" href="{{route("show-request",[$attempt->id])}}">Посмотреть</a></td>
                                     </tr>
                                 @endforeach
@@ -52,8 +52,9 @@
 
                         </tbody>
                     </table>
-
-
+                    <div class="d-flex justify-content-center my-4">
+                        {{$applications->links()}}
+                    </div>
                 </div>
 
             </div>
