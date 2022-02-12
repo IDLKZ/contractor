@@ -38,9 +38,16 @@ class AuthController extends Controller
 
     public function signIn(Request $request){
         $request->validate(["email"=>"required|email", "password"=>"required|min:4|max:255"]);
-        if(Auth::attempt(["email"=>$request["email"],"password"=>$request["password"]])){
-            $request->session()->regenerate();
-            return redirect("/");
+        $user = Auth::attempt(["email"=>$request["email"],"password"=>$request["password"]]);
+
+        if($user){
+            if (Auth::user()->role_id == 1) {
+                $request->session()->regenerate();
+                return redirect(route('received'));
+            } else {
+                $request->session()->regenerate();
+                return redirect("/");
+            }
         }
         else{
             toastError("Пароль или email некорректны");

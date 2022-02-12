@@ -42,7 +42,7 @@
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
 
                     <li class="nav-item">
-                        <a href="#" class="nav-link {{ Request::is('admin/orders/*') ? 'my-active' : '' }}">
+                        <a href="{{route('received')}}" class="nav-link {{ Request::is('admin/orders/*') ? 'my-active' : '' }}">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Заявки
@@ -50,7 +50,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('vacancies.index')}}" class="nav-link {{ Request::is('admin/vacancies*') ? 'my-active' : '' }}">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Вакансии
@@ -58,7 +58,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="javascript:void(0)" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Отчеты
@@ -66,7 +66,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{route('logout')}}" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Выход

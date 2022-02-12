@@ -15,16 +15,16 @@
             <a href="{{route('special_check')}}" class="nav-link {{ Request::is('admin/orders/special_check') ? 'navbar-active' : '' }}">Спецпроверка</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Обследование</a>
+            <a href="javascript:void (0)" class="nav-link">Обследование</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">На подписании</a>
+            <a href="javascript:void (0)" class="nav-link">На подписании</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Подписанные</a>
+            <a href="javascript:void (0)" class="nav-link">Подписанные</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Отклоненные</a>
+            <a href="javascript:void (0)" class="nav-link">Отклоненные</a>
         </li>
     </ul>
 

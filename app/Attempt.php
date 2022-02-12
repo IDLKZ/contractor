@@ -32,7 +32,7 @@ class Attempt extends Model
     use UploadModel;
 
     protected $casts = [
-
+        'published_date' => 'datetime:d/m/Y',
     ];
     /**
      * @var array

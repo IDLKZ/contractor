@@ -29,6 +29,20 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @if($accepts)
+                                @foreach($accepts as $accept)
+                                    <tr>
+                                        <td>{{$loop->iteration}}.</td>
+                                        <td>{{$accept->application->name}}</td>
+                                        <td>
+                                            {{$accept->published_date->format('d/m/Y')}}
+                                        </td>
+                                        <td>
+                                            <a href="{{route('accepted_show', $accept->application->id)}}">Принято</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
                             <tr>
                                 <td>1.</td>
                                 <td>Белан Дмитрий Петрович</td>
@@ -59,7 +73,7 @@
                                     <a href="{{route('accepted_show', 1)}}">Принято</a>
                                 </td>
                             </tr>
-
+                            @endif
                             </tbody>
                         </table>
                     </div>

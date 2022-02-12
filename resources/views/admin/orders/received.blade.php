@@ -28,6 +28,20 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @if($receiveds)
+                                @foreach($receiveds as $received)
+                                    <tr>
+                                        <td>{{$loop->iteration}}.</td>
+                                        <td>{{$received->application->name}}</td>
+                                        <td>
+                                            {{$received->published_date->format('d/m/Y')}}
+                                        </td>
+                                        <td>
+                                            <a href="{{route('received_show', $received->application->id)}}">Поступили документы</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            @else
                             <tr>
                                 <td>1.</td>
                                 <td>Белан Дмитрий Петрович</td>
@@ -58,12 +72,14 @@
                                     <a href="{{route('received_show', 1)}}">Поступили документы</a>
                                 </td>
                             </tr>
-
+                            @endif
                             </tbody>
                         </table>
                     </div>
                     <!-- /.card-body -->
                 </div>
+
+                {!! $receiveds->links() !!}
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
