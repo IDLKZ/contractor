@@ -34,7 +34,7 @@
                         @if(auth()->user()->role_id == 1)
 
                         @else
-                            <a class="nav-link color-blue-1 navbar-links" href="{{route("cabinet")}}">{{auth()->user()->name}}</a>
+                            <a class="nav-link color-blue-1 navbar-links" href="{{route("myRequest")}}">{{auth()->user()->name}}</a>
                         @endif
                     @else
                         <a class="nav-link color-blue-1 navbar-links" href="{{route("login")}}">Войти</a>

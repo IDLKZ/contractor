@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class UserCabinetController extends Controller
 {
     public function cabinet(){
-        return view("user.cabinet");
+        return view("user.attempt");
     }
 }

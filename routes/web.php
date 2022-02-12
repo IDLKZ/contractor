@@ -30,10 +30,9 @@ Route::group(["prefix" => "user"],function (){
     Route::post("/save-request",[\App\Http\Controllers\RequestController::class,"save"])->name("save-request");
     Route::put("/change-request",[\App\Http\Controllers\RequestController::class,"change"])->name("change-request");
     Route::delete("/delete-request",[\App\Http\Controllers\RequestController::class,"delete"])->name("delete-request");
-
-    Route::get("/cabinet",[\App\Http\Controllers\UserCabinetController::class,"cabinet"])->name("cabinet");
+    Route::get("/show-request/{id}",[\App\Http\Controllers\RequestController::class,"showRequest"])->name("show-request");
     Route::get("/my-request",[\App\Http\Controllers\RequestController::class,"myRequest"])->name("myRequest");
-    Route::get("/offers",[\App\Http\Controllers\RequestController::class,"offers"])->name("offers");
+    Route::get("/offers/{id}",[\App\Http\Controllers\RequestController::class,"offer"])->name("offer");
 
 });
 

@@ -6,6 +6,7 @@ use App\Application;
 use App\Attempt;
 use App\Http\Requests\ChangeApplicationRequest;
 use App\Http\Requests\SaveApplicationRequest;
+use App\Offer;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -30,11 +31,35 @@ class RequestController extends Controller
     public function myRequest(){
         $applications = Application::where("user_id",Auth::id())->with("attempts","offers")->paginate(15);
         return view("user.requests.my_requests",compact("applications"));
-
     }
 
-    public function offers(){
-        return view("user.offers");
+
+    public function showRequest($id){
+        $attempt = Attempt::find($id);
+        if($attempt){
+            $application = Application::where(["id"=>$attempt->application_id,"user_id"=>Auth::id()])->get();
+            if($application){
+               return  view("user.attempt",compact("attempt"));
+            }
+            else{
+                return redirect()->route("myRequest");
+            }
+        }
+        else{
+            return redirect()->route("myRequest");
+        }
+    }
+
+    public function offer($id){
+        $offer = Offer::find($id);
+        if($offer){
+            $attempt = Attempt::find($offer->attempt_id);
+            return view("user.offers",compact("offer","attempt"));
+
+        }
+        else{
+            return  redirect()->back();
+        }
     }
 
 

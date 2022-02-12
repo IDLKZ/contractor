@@ -114,6 +114,17 @@ class Attempt extends Model
         else if($this->status == -1){
             return "Отказано";
         }
+    }
 
+    public function getStatusCode($status){
+        if($status == 0){
+            return "Ожидание";
+        }
+        else if($status == 1){
+            return "Одобрено";
+        }
+        else if($status == -1){
+            return "Отказано";
+        }
     }
 }

@@ -33,7 +33,7 @@
                                         <th scope="row">Заявка № {{$attempt->id}}</th>
                                         <td>{{$attempt->published_date}}</td>
                                         <td>{{$attempt->step->title}}:{{$attempt->getStatus()}}</td>
-                                        <td><a class="text-black" href="">Посмотреть</a></td>
+                                        <td><a class="text-black" href="{{route("show-request",[$attempt->id])}}">Посмотреть</a></td>
                                     </tr>
                                 @endforeach
 

@@ -13,9 +13,9 @@
 
             <div class="text-left">
                 <p class="main-title-1 text-white">
-                    Заявка № 00001
+                    Заявка № {{$attempt->id}}
                 </p>
-                <a href="" class="text-white text-underline">
+                <a href="{{route("show-request",$attempt->id)}}" class="text-white text-underline">
                     Посмотреть
                 </a>
 
@@ -23,18 +23,39 @@
 
         </div>
 
-
-        <div class="row">
-            <div class="col-md-12 my-4">
-                <div class="card bg-white py-2 px-4">
-                    <p class="font-weight-bold">
-                        Поздравляем, Ваша кандидатура одобрена для поступления  на контрактную службу. Вам необходимо скачать Контракт, распечатать, подписать и явиться по месту службы не позднее 01/02/2022.
-                        В случае не согласия с предложенной должностью или отказа от контрактной службы необходитмо нажать кнопку “Отклонить” и написать мотивированный отказ в комментарии.
-                    </p>
-                    ю
+        <div class="card bg-white">
+            <div class="row my-2 px-4">
+                <div class="col-md-12 my-4 ">
+                    <div>
+                        <p class="font-weight-bold">
+                            Поздравляем, Ваша кандидатура одобрена для поступления  на контрактную службу. Вам необходимо скачать Контракт, распечатать, подписать и явиться по месту службы не позднее
+                            {{$offer->arrived_at}}.
+                            В случае не согласия с предложенной должностью или отказа от контрактной службы необходитмо нажать кнопку “Отклонить” и написать мотивированный отказ в комментарии.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="d-flex py-2">
+                        <p class="font-weight-bold ma-0 mx-2 align-self-center" style="margin-top: 0!important; margin-bottom: 0!important;">Должность</p>
+                        <input type="text"  class="form-control border-black-1 d-inline" style="width: auto" aria-describedby="relative_name" value="{{$offer->position}}" disabled>
+                    </div>
+                </div>
+                <div class="col-md-12">
+                <div class="d-flex py-2">
+                    <p class="font-weight-bold ma-0 mx-2 align-self-center" style="margin-top: 0!important; margin-bottom: 0!important;">Воинская часть</p>
+                    <input type="text"  class="form-control border-black-1 d-inline" style="width: auto" aria-describedby="relative_name" value="{{$offer->army_section_id}}" disabled>
+                </div>
+                </div>
+                <div class="col-md-12">
+                    <div class="d-flex py-2">
+                        <p class="font-weight-bold ma-0 mx-2 align-self-center" style="margin-top: 0!important; margin-bottom: 0!important;">Дата прибытия</p>
+                        <input type="text"  class="form-control border-black-1 d-inline" style="width: auto" aria-describedby="relative_name" value="{{$offer->arrived_at}}" disabled>
+                    </div>
                 </div>
             </div>
+
         </div>
+
 
 
 
