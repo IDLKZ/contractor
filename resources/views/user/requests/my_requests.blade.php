@@ -43,7 +43,7 @@
                                     <td>{{$application->updated_at}}</td>
                                     <td>Сохранена, но не отправлена </td>
                                     <td>
-                                        <a href="">Изменить</a>
+                                        <a href="{{route("update-request",[$application->id])}}">Изменить</a>
 
                                     </td>
                                 </tr>

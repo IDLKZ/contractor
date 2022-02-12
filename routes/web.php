@@ -23,13 +23,19 @@ Route::post("/signUp",[\App\Http\Controllers\AuthController::class,"signUp"])->n
 Route::post("/signIn",[\App\Http\Controllers\AuthController::class,"signIn"])->name("signIn");
 Route::get("/logout",[\App\Http\Controllers\AuthController::class,"logout"])->name("logout");
 
-Route::get("/create-request",[\App\Http\Controllers\RequestController::class,"create"])->name("create-request");
-Route::post("/save-request",[\App\Http\Controllers\RequestController::class,"save"])->name("save-request");
 
+Route::group(["prefix" => "user"],function (){
+    Route::get("/create-request",[\App\Http\Controllers\RequestController::class,"create"])->name("create-request");
+    Route::get("/update-request/{id}",[\App\Http\Controllers\RequestController::class,"update"])->name("update-request");
+    Route::post("/save-request",[\App\Http\Controllers\RequestController::class,"save"])->name("save-request");
+    Route::put("/change-request",[\App\Http\Controllers\RequestController::class,"change"])->name("change-request");
+    Route::delete("/delete-request",[\App\Http\Controllers\RequestController::class,"delete"])->name("delete-request");
 
-Route::get("/cabinet",[\App\Http\Controllers\UserCabinetController::class,"cabinet"])->name("cabinet");
-Route::get("/my-request",[\App\Http\Controllers\RequestController::class,"myRequest"])->name("myRequest");
-Route::get("/offers",[\App\Http\Controllers\RequestController::class,"offers"])->name("offers");
+    Route::get("/cabinet",[\App\Http\Controllers\UserCabinetController::class,"cabinet"])->name("cabinet");
+    Route::get("/my-request",[\App\Http\Controllers\RequestController::class,"myRequest"])->name("myRequest");
+    Route::get("/offers",[\App\Http\Controllers\RequestController::class,"offers"])->name("offers");
+
+});
 
 
 Route::group(['prefix' => 'admin'], function (){

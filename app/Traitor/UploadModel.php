@@ -44,6 +44,30 @@ trait UploadModel
         $this->save();
     }
 
+    public function editWithFiles($request,$input){
+        try{
+            $this->update($input);
+            $uploadFiles = $this->uploadFiles;
+            foreach ($uploadFiles as $file){
+                if($request->hasFile($file)){
+                    $this->uploadFile($request[$file],$file);
+                }
+            }
+            return $this;
+        }
+        catch (\Exception $e){;
+            return  false;
+        }
+    }
+
+
+    public function removeWithFiles(){
+        foreach ($this->uploadFiles as $file){
+            $this->removeFile($file);
+        }
+        $this->delete();
+    }
+
     public function remove($path)
     {
         $this->removeFile($path);

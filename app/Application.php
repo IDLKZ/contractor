@@ -50,7 +50,7 @@ class Application extends Model
     protected $keyType = 'integer';
 
     protected $uploadFiles = [
-        'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id', 'anketa'
+        'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id',
         ];
 
     protected $casts=[
@@ -62,6 +62,14 @@ class Application extends Model
      */
     protected $fillable = ["user_id",'name', 'birthplace', 'iin', 'education', 'car_licence', 'experience', 'army_service', 'army_section_id', 'position', 'rank', 'vtsh', 'branch_name', 'year_service', 'wanted_position', 'contract_term', 'region', 'phone', 'email', 'photo', 'id_document', 'autobiography', 'diploma', 'declaration', 'work_book', 'military_id', 'anketa', 'created_at', 'updated_at'];
 
+    protected function castAttribute($key, $value)
+    {
+        if ($this->getCastType("anketa") == 'array' && is_null($value)) {
+            return [];
+        }
+
+        return parent::castAttribute("anketa", $value);
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
