@@ -24,7 +24,7 @@
             <a href="javascript:void (0)" class="nav-link">Подписанные</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="javascript:void (0)" class="nav-link">Отклоненные</a>
+            <a href="{{route('rejected')}}" class="nav-link {{ Request::is('admin/orders/rejected') ? 'navbar-active' : '' }}">Отклоненные</a>
         </li>
     </ul>
 

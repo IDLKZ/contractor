@@ -41,9 +41,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function (){
     Route::group(['prefix' => 'orders'], function (){
         Route::get('/received', [OrderController::class, 'received'])->name('received');
         Route::get('/received/{id}', [OrderController::class, 'received_show'])->name('received_show');
+        Route::post('/received/{id}', [OrderController::class, 'received_update'])->name('received_update');
         Route::get('/accepted', [OrderController::class, 'accepted'])->name('accepted');
         Route::get('/accepted/{id}', [OrderController::class, 'accepted_show'])->name('accepted_show');
+        Route::post('/accepted/{id}', [OrderController::class, 'accepted_update'])->name('accepted_update');
         Route::get('/special_check', [OrderController::class, 'special_check'])->name('special_check');
+
+        Route::get('rejected', [OrderController::class, 'rejected'])->name('rejected');
     });
     Route::group(['prefix' => 'vacancies'], function (){
         Route::get('/', [\App\Http\Controllers\Admin\VacancyController::class, 'index'])->name('vacancies.index');
@@ -52,6 +56,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function (){
         Route::delete('/{id}', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancies.destroy');
         Route::get('delete', [\App\Http\Controllers\Admin\VacancyController::class, 'delete'])->name('vacancies.delete');
     });
-
-
 });

@@ -1,6 +1,5 @@
 @extends('layout.admin.template')
 @push('styles')
-    <link rel="stylesheet" href="/assets/styles/photoviewer.css">
     <style>
         table {
             width: 100%;
@@ -180,22 +179,35 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-                                        <tr>
-                                            <th scope="row">Беланова Тамара Ренатовна</th>
-                                            <td>Жена</td>
-                                            <td>15/06/1990</td>
-                                            <td>901506650987</td>
-                                        </tr>
-
+                                        @if($app->anketa)
+                                            @foreach(json_decode($app->anketa[0],1) as $item)
+                                                <tr>
+                                                    <th scope="row">{{$item['relative_name']}}</th>
+                                                    <td>{{$item['relative_status']}}</td>
+                                                    <td>{{$item['relative_birthdate']}}</td>
+                                                    <td>{{$item['relative_iin']}}</td>
+                                                </tr>
+                                            @endforeach
+                                        @else
+                                            <tr>
+                                                <th scope="row">Беланова Тамара Ренатовна</th>
+                                                <td>Жена</td>
+                                                <td>15/06/1990</td>
+                                                <td>901506650987</td>
+                                            </tr>
+                                        @endif
                                         </tbody>
                                     </table>
 
                                 </div>
                             </div>
 
-
                             <div class="row justify-content-end w-100 px-2 mx-0 my-4">
-                                <button class="btn btn-info" type="submit">Отправить на спецпроверку</button>
+                                <form action="{{route('accepted_update', $app->id)}}" method="post">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$app->id}}">
+                                    <button class="btn btn-info" type="submit">Отправить на спецпроверку</button>
+                                </form>
                             </div>
 
                         </div>
@@ -209,119 +221,5 @@
     <!-- /.content-wrapper -->
 @endsection
 @push('scripts')
-    <script src="{{asset('assets/scripts/photoviewer.js')}}"></script>
-    <script>
-        $('[data-gallery=photo]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=photo]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-        $('[data-gallery=manual-id_document]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=manual-id_document]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-        $('[data-gallery=manual-autobiography]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=manual-autobiography]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-        $('[data-gallery=manual-diploma]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=manual-diploma]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-        $('[data-gallery=manual-declaration]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=manual-declaration]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-        $('[data-gallery=manual-work_book]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=manual-work_book]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-        $('[data-gallery=manual-millitary_id]').click(function (e) {
-            e.preventDefault();
-            var items = [],
-                // get index of element clicked
-                options = {
-                    index: $(this).index()
-                };
-            // looping to create images array
-            $('[data-gallery=manual-millitary_id]').each(function () {
-                let src = $(this).attr('href');
-                items.push({
-                    src: src
-                });
-            });
-            new PhotoViewer(items, options);
-        });
-    </script>
+
 @endpush

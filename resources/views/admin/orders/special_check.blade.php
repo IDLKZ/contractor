@@ -28,6 +28,18 @@
                             </tr>
                             </thead>
                             <tbody>
+                            @if($specials)
+                                @foreach($specials as $special)
+                                    <tr>
+                                        <td>{{$loop->iteration}}.</td>
+                                        <td>{{$special->application->name}}</td>
+                                        <td>
+                                            {{$special->updated_at->format('d/m/Y')}}
+                                        </td>
+                                        <td>На спецпроверке</td>
+                                    </tr>
+                                @endforeach
+                            @else
                             <tr>
                                 <td>1.</td>
                                 <td>Белан Дмитрий Петрович</td>
@@ -52,12 +64,13 @@
                                 </td>
                                 <td>На спецпроверке</td>
                             </tr>
-
+                            @endif
                             </tbody>
                         </table>
                     </div>
                     <!-- /.card-body -->
                 </div>
+                {!! $specials->links() !!}
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
