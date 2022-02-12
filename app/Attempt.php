@@ -33,6 +33,10 @@ class Attempt extends Model
 
     protected $casts = [
         'published_date' => 'datetime:d/m/Y',
+        'accepted_date' => 'datetime:d/m/Y',
+        'checked_date' => 'datetime:d/m/Y',
+        'offered_date' => 'datetime:d/m/Y',
+        'signed_date' => 'datetime:d/m/Y',
     ];
     /**
      * @var array
@@ -126,5 +130,27 @@ class Attempt extends Model
         else if($status == -1){
             return "Отказано";
         }
+    }
+
+    public static function receivedUpdate($app, $comment = null) {
+        if ($comment){
+            $app->step_id = 1;
+            $app->accepted_date = Carbon::now();
+            $app->accepted_comment = $comment;
+            $app->status = -1;
+            $app->save();
+        } else {
+            $app->step_id = 2;
+            $app->accepted_date = Carbon::now();
+            $app->accepted_status = 1;
+            $app->save();
+        }
+    }
+
+    public static function acceptedUpdate($app) {
+        $app->step_id = 3;
+        $app->checked_date = Carbon::now();
+        $app->checked_status = 1;
+        $app->save();
     }
 }

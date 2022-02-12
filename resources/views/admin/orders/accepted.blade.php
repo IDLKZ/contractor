@@ -35,7 +35,7 @@
                                         <td>{{$loop->iteration}}.</td>
                                         <td>{{$accept->application->name}}</td>
                                         <td>
-                                            {{$accept->published_date->format('d/m/Y')}}
+                                            {{$accept->accepted_date->format('d/m/Y')}}
                                         </td>
                                         <td>
                                             <a href="{{route('accepted_show', $accept->application->id)}}">Принято</a>
