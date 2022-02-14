@@ -137,6 +137,7 @@ class Attempt extends Model
             $app->step_id = 1;
             $app->accepted_date = Carbon::now();
             $app->accepted_comment = $comment;
+            $app->accepted_status = -1;
             $app->status = -1;
             $app->save();
         } else {
