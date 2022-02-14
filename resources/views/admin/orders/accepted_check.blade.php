@@ -105,8 +105,8 @@
                                         <span class="check-icon"></span>
                                     </label>
                                     <label for="">
-                                        @include('admin.orders.modal', ['title' => 'Фото', 'url' => $app->getFile('photo'), 'id' => 1])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Фото', 'url' => $app->getFile('photo'), 'id' => 1])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Фото', 'appId' => $app->id, 'id' => 1, 'type' => 'photo'])                                    </label>
 
                                 </div>
 
@@ -116,8 +116,8 @@
                                         <span class="check-icon"></span>
                                     </label>
                                     <label for="">
-                                        @include('admin.orders.modal', ['title' => 'Удостоверение личности', 'url' => $app->getFile('id_document'), 'id' => 2])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Удостоверение личности', 'url' => $app->getFile('id_document'), 'id' => 2])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Удостоверение личности', 'appId' => $app->id, 'id' => 2, 'type' => 'id_document'])                                    </label>
                                 </div>
 
                                 <div class="form-group my-4">
@@ -126,8 +126,8 @@
                                         <span class="check-icon"></span>
                                     </label>
                                     <label for="">
-                                        @include('admin.orders.modal', ['title' => 'Диплом с приложением', 'url' => $app->getFile('diploma'), 'id' => 4])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Диплом с приложением', 'url' => $app->getFile('diploma'), 'id' => 4])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Диплом с приложением', 'appId' => $app->id, 'id' => 3, 'type' => 'diploma'])                                     </label>
                                 </div>
 
                                 <div class="form-group my-4">
@@ -136,8 +136,8 @@
                                         <span class="check-icon"></span>
                                     </label>
                                     <label for="">
-                                        @include('admin.orders.modal', ['title' => 'Декларация о доходах и имуществе', 'url' => $app->getFile('declaration'), 'id' => 5])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Декларация о доходах и имуществе', 'url' => $app->getFile('declaration'), 'id' => 5])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Декларация о доходах и имуществе', 'appId' => $app->id, 'id' => 4, 'type' => 'declaration'])                                     </label>
                                 </div>
 
                                 <div class="form-group my-4">
@@ -146,8 +146,8 @@
                                         <span class="check-icon"></span>
                                     </label>
                                     <label for="">
-                                        @include('admin.orders.modal', ['title' => 'Трудовая книжка', 'url' => $app->getFile('work_book'), 'id' => 6])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Трудовая книжка', 'url' => $app->getFile('work_book'), 'id' => 6])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Трудовая книжка', 'appId' => $app->id, 'id' => 5, 'type' => 'work_book'])                                     </label>
                                 </div>
 
                                 <div class="form-group my-4">
@@ -156,8 +156,8 @@
                                         <span class="check-icon"></span>
                                     </label>
                                     <label for="">
-                                        @include('admin.orders.modal', ['title' => 'Военный билет', 'url' => $app->getFile('military_id'), 'id' => 7])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Военный билет', 'url' => $app->getFile('military_id'), 'id' => 7])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Военный билет', 'appId' => $app->id, 'id' => 6, 'type' => 'military_id'])                                    </label>
                                 </div>
                             </div>
 

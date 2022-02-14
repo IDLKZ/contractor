@@ -62,4 +62,9 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function (){
         Route::delete('/{id}', [\App\Http\Controllers\Admin\VacancyController::class, 'destroy'])->name('vacancies.destroy');
         Route::get('delete', [\App\Http\Controllers\Admin\VacancyController::class, 'delete'])->name('vacancies.delete');
     });
+
+    Route::get('get-pdf/{id}/{type}', function ($id, $type) {
+        $app = \App\Application::find($id);
+        return response()->file(public_path($app->getFile($type)));
+    })->name('get-pdf');
 });

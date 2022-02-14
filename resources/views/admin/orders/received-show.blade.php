@@ -221,7 +221,8 @@
                                     <label for="photo" class="font-weight-bold">Фото</label>
                                     <br>
                                     <label for="photo" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Фото', 'url' => $app->getFile('photo'), 'id' => 1])
+{{--                                        @include('admin.orders.modal', ['title' => 'Фото', 'url' => $app->getFile('photo'), 'id' => 1])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Фото', 'appId' => $app->id, 'id' => 1, 'type' => 'photo'])
                                     </label>
                                 </div>
 
@@ -229,14 +230,15 @@
                                     <label for="id_document" class="font-weight-bold">Удостоверение личности</label>
                                     <br>
                                     <label for="id_document" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Удостоверение личности', 'url' => $app->getFile('id_document'), 'id' => 2])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Удостоверение личности', 'url' => $app->getFile('id_document'), 'id' => 2])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Удостоверение личности', 'appId' => $app->id, 'id' => 2, 'type' => 'id_document'])                                    </label>
                                 </div>
                                 <div class="form-group my-4">
                                     <label for="autobiography" class="font-weight-bold">Автобиография</label>
                                     <br>
                                     <label for="autobiography" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Автобиография', 'url' => $app->getFile('autobiography'), 'id' => 3])
+{{--                                        @include('admin.orders.modal', ['title' => 'Автобиография', 'url' => $app->getFile('autobiography'), 'id' => 3])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Автобиография', 'appId' => $app->id, 'id' => 3, 'type' => 'autobiography'])
                                     </label>
                                 </div>
 
@@ -244,32 +246,32 @@
                                     <label for="diploma" class="font-weight-bold">Диплом с приложением</label>
                                     <br>
                                     <label for="diploma" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Диплом с приложением', 'url' => $app->getFile('diploma'), 'id' => 4])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Диплом с приложением', 'url' => $app->getFile('diploma'), 'id' => 4])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Диплом с приложением', 'appId' => $app->id, 'id' => 4, 'type' => 'diploma'])                                    </label>
                                 </div>
 
                                 <div class="form-group my-4">
                                     <label for="declaration" class="font-weight-bold">Декларация о доходах и имуществе</label>
                                     <br>
                                     <label for="declaration" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Декларация о доходах и имуществе', 'url' => $app->getFile('declaration'), 'id' => 5])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Декларация о доходах и имуществе', 'url' => $app->getFile('declaration'), 'id' => 5])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Декларация о доходах и имуществе', 'appId' => $app->id, 'id' => 5, 'type' => 'declaration'])                                     </label>
                                 </div>
 
                                 <div class="form-group my-4">
                                     <label for="work_book" class="font-weight-bold">Трудовая книжка</label>
                                     <br>
                                     <label for="work_book" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Трудовая книжка', 'url' => $app->getFile('work_book'), 'id' => 6])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Трудовая книжка', 'url' => $app->getFile('work_book'), 'id' => 6])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Трудовая книжка', 'appId' => $app->id, 'id' => 6, 'type' => 'work_book'])                                    </label>
                                 </div>
 
                                 <div class="form-group my-4">
                                     <label for="millitary_id" class="font-weight-bold">Военный билет</label>
                                     <br>
                                     <label for="millitary_id" class="color-blue-1">
-                                        @include('admin.orders.modal', ['title' => 'Военный билет', 'url' => $app->getFile('military_id'), 'id' => 7])
-                                    </label>
+{{--                                        @include('admin.orders.modal', ['title' => 'Военный билет', 'url' => $app->getFile('military_id'), 'id' => 7])--}}
+                                        @include('admin.orders.pdf', ['title' => 'Военный билет', 'appId' => $app->id, 'id' => 7, 'type' => 'military_id'])                                    </label>
                                 </div>
                             </div>
 
@@ -354,6 +356,4 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
-@push('scripts')
 
-@endpush
